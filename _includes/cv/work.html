@@ -36,7 +36,7 @@
         {% if w.highlights %}
           <ul class="highlights">
             {% for highlight in w.highlights %}
-              <li>{{ highlight }}</li>
+              <li>{{ highlight | markdownify }}</li>
             {% endfor %}
           </ul>
         {% endif %}
