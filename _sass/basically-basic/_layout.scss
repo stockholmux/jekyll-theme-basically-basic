@@ -152,7 +152,6 @@ main {
     }
 
     .date {
-      margin-bottom: 1rem;
       color: tint($text-color, 40%);
       font-family: $monospace-font-family;
       font-size: 80%;
@@ -168,6 +167,10 @@ main {
     .courses,
     .keywords {
       @include list-unstyled;
+    }
+    .date + .institution,
+    .area + .institution {
+      margin-top: 1rem;
     }
   }
 

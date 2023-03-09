@@ -3,16 +3,19 @@ layout: default
 ---
 
 {% assign cv = site.data.cv %}
+{% assign cv_private = site.data.cv_private %}
 {% include cv/intro.html %}
 
 <main id="main" class="page-content" aria-label="Content">
   <div class="index inner">
     <div>{{ content }}</div>
-    <div>
-      <div class="entries">
-        {% include cv/basics.html %}
+    <div>{% include cv/basics.html %}</div>
+    <div class="print-col-container">
+      <div class="entries print-col-1">
         {% include cv/work.html %}
         {% include cv/volunteer.html %}
+      </div>
+      <div class="entries print-col-2">
         {% include cv/education.html %}
         {% include cv/awards.html %}
         {% include cv/publications.html %}

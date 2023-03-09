@@ -249,4 +249,88 @@
     display: none !important;
     height: 1px;
   }
+  .layout--cv {
+    line-height: 1.25;
+    font-size: 10px;
+
+    .summary p {
+      margin-bottom: 0.5em;
+    }
+    .intro {
+      padding-top: 0;
+    }
+    .entry {
+      margin-bottom: 1rem;
+    }
+    .entry-title {
+      margin-bottom: 0;
+    }
+    h3.entry-title {
+      text-decoration: underline;
+    }
+
+    .entry:not(:last-child) {
+      border-bottom: none;
+    }
+    .entry-details {
+      margin-left: 1em;
+    }
+    h3 {
+      font-size: 15px;
+    }
+    h4 {
+      font-size: 13px;
+    }
+    h3.name {
+      margin-bottom: 0.25rem;
+    }
+    .intro-text {
+      border-bottom: 1px solid black;
+      overflow: auto;
+      h1, 
+      p {
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 18px;
+        margin-bottom: 0;
+      }
+      h1 {
+        float: left;
+      }
+      p {
+        float: right;
+      }
+    }
+    .entry, 
+    .intro {
+      padding-bottom: 0;
+      margin-top: 0;
+    }
+    .intro {
+      margin-bottom: 0.5em;
+    }
+    .print-col-container {
+      display: flex;
+      .entries .entry-content {
+        float: none;
+        width: auto;
+      }
+      .print-col-1 {
+        flex-grow: 2;
+      }
+      .print-col-2 {
+        width: 33%
+      }
+    }
+    .entry a[href] {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a[href^="http://"]::after, 
+    a[href^="https://"]::after, 
+    a[href^="ftp://"]::after {
+      content: "";
+    }
+  }
 }

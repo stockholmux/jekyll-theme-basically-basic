@@ -15,31 +15,34 @@
             {% endif %}
           </h3>
         {% endif %}
-        {% if w.position %}
-          <h4 class="position">{{ w.position }}</h4>
-        {% endif %}
-        <div class="date">
-          {% if w.startDate %}
-            <span class="startDate">{{ w.startDate }}</span>
+        <div class="entry-details">
+          {% if w.position %}
+            <h4 class="position">{{ w.position | markdownify | remove: '<p>' | remove: '</p>' }}</h4>
           {% endif %}
-          {% if w.endDate == '' %}
-            <span class="endDate">{{ site.data.theme.t.present | default: 'Present' | prepend: ' &mdash; ' }}</span>
-          {% else %}
-            <span class="endDate">{{ w.endDate | prepend: ' &mdash; ' }}</span>
-          {% endif %}
-        </div>
-        {% if w.summary %}
-          <div class="summary">
-            <p>{{ w.summary }}</p>
+          <div class="date">
+            {% if w.startDate %}
+              <span class="startDate">{{ w.startDate }}</span>
+            {% endif %}
+            {% if w.endDate == '' %}
+              <span class="endDate">{{ site.data.theme.t.present | default: 'Present' | prepend: ' &mdash; ' }}</span>
+            {% else %}
+              <span class="endDate">{{ w.endDate | prepend: ' &mdash; ' }}</span>
+            {% endif %}
           </div>
-        {% endif %}
-        {% if w.highlights %}
-          <ul class="highlights">
-            {% for highlight in w.highlights %}
-              <li>{{ highlight | markdownify }}</li>
-            {% endfor %}
-          </ul>
-        {% endif %}
+          {% if w.summary %}
+            <div class="summary">
+              <p>{{ w.summary }}</p>
+            </div>
+          {% endif %}
+          {% if w.highlights %}
+            <ul class="highlights">
+              {% for highlight in w.highlights %}
+                <li>{{ highlight | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}          
+        </div>
+
       {% endfor %}
     </div>
   </div>
