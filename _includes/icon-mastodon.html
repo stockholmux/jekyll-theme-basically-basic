@@ -1,0 +1,6 @@
+<a rel="me" href="https://{{include.instance}}/@{{ include.username }}">
+    <span class="icon icon--mastodon">{% include icon-mastodon.svg %}</span>
+    {% assign mastodon_full = "@" | append: include.username | append: "@" | append: include.instance  %}
+    <span class="label">{{ include.label | default: mastodon_full }}</span>
+</a>
+  

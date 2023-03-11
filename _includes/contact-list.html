@@ -7,7 +7,9 @@
       </a>
     </li>
   {% endif %}
-
+  {% if site.mastodon_username and site.mastodon_instance %}
+    <li>{% include icon-mastodon.html username=site.mastodon_username instance=site.mastodon_instance label='Mastodon' %}</li>
+  {% endif %}  
   {% if site.github_username %}
     <li>{% include icon-github.html username=site.github_username label='GitHub' %}</li>
   {% endif %}
