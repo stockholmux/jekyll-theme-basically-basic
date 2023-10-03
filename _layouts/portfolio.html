@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+{% include page-intro.html %}
+{% assign sorting_by = page.sort_column | default: "title" %}
+{% assign sorted_items = page.items | sort: sorting_by | reverse %}
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="inner">
+    <article class="entry-wrap">
+      <div class="entry-content">
+        {{ content }}
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">{{ page.columns[0] }} </th>
+                    <th scope="col">{{ page.columns[1] }}</th>
+                    <th scope="col">{{ page.columns[2] }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for writing in sorted_items %}
+                <tr>
+                    {% assign type_output = page.types | where: "type", writing.type | first %}
+                    <td>{{ type_output.pretty }}</td>
+                    <td>
+                        {% if writing.link %}
+                            <a href="{{writing.link}}" target="_blank" rel="nofollow">{{writing.title}}</a>
+                        {% else %}
+                            {{writing.title}}
+                        {% endif %}
+                    </td>
+                    <td>{{writing.for}} </td>
+                </tr>
+                {% endfor %} 
+            </tbody>
+        </table>
+      </div>
+    </article>
+  </div>
+</main>
